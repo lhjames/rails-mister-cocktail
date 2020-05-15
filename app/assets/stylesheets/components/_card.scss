@@ -1,0 +1,17 @@
+.cards {
+    display: flex;
+    justify-content: center;
+}
+.card_cocktail {
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    padding: 10px;
+}
+a.cocktail_link {
+    display: block;
+    padding: 10px;
+}
+.card-details {
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    padding: 1em;
+    margin: 1em auto;
+}

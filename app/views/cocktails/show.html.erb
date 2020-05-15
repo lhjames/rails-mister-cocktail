@@ -1,9 +1,15 @@
+<%= image_tag "banner.jpg", alt: "Le Wagon", width: 600 %>
+  <div class="container text-center">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
+
+
 <div class="container">
-  <h1><%= @cocktail.name %></h1>
-    <ul class="list-group">
+        <ul class="list-group">
         <% @cocktail.doses.each do |dose| %>
           <li class="list-group-item"><%= dose.ingredient.name %></li>
-          <li><%= dose.description %></li>
+          <li class="list-group-item"><%= dose.description %></li>
           <%= link_to 'Remove this', cocktail_dose_path(@cocktail, dose), method: :delete %>
         <% end %>
     </ul>
@@ -13,6 +19,7 @@
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <%= simple_form_for [@cocktail, @dose] do |f| %>
         <%= f.input :ingredient_id, collection: Ingredient.order(:name), prompt: "Pick one from list" %>
+        <p>Add the dose of the ingredient:</p>
         <%= f.input :description %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
         <% end %>
