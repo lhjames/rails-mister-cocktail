@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+#cocktails-index{
+	background-image: linear-gradient(to right top, #e94752, #d657a3, #917cd4, #3694d3, #2b9eb3);
+}
+.banner {
+	background-size: cover;
+	height: 300px;
+  background-position: bottom;
+  padding: 100px 0;
+}
+.banner > h1 {
+	font-family: 'Lobster', cursive;
+	font-size: 5em;
+	text-align: center;
+	color: #E94752;
+}
+#cocktails-index > .container {
+    width: 100vw !important;
+    max-width: 100vw;
+    padding: 0;
+}
+.button {
+	font-family: 'Lobster', cursive;
+  font-weight: lighter;
+  font-size: 2em;
+  color: #E94752;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  margin: 20px 0;
+}

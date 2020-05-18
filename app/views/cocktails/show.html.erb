@@ -1,17 +1,18 @@
-<%= image_tag "banner.jpg", alt: "Le Wagon", width: 600 %>
-  <div class="container text-center">
+  <div class="container">
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key, height: 200, width: 800, crop: :fill%> 
+  <% else %>
+    <%= "no picture" %>
+    <div class="container text-center">
+  <% end %>
     <h1><%= @cocktail.name %></h1>
-  </div>
-</div>
-
-
-<div class="container">
-        <ul class="list-group">
-        <% @cocktail.doses.each do |dose| %>
-          <li class="list-group-item"><%= dose.ingredient.name %></li>
-          <li class="list-group-item"><%= dose.description %></li>
-          <%= link_to 'Remove this', cocktail_dose_path(@cocktail, dose), method: :delete %>
-        <% end %>
+    </div>
+    <ul class="list-group">
+      <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item"><%= dose.ingredient.name %></li>
+      <li class="list-group-item"><%= dose.description %></li>
+      <%= link_to 'Remove this', cocktail_dose_path(@cocktail, dose), method: :delete %>
+      <% end %>
     </ul>
 
     <h3 class="text-center">Add an ingredient</h3>
@@ -25,8 +26,11 @@
         <% end %>
         </div>
       </div>
-        <div class="pad20">
-          <%= link_to "Go back", cocktails_path, class: "btn btn-warning btn-sm" %>
-          <%= link_to 'Add new cocktail', new_cocktail_path(@cocktail) %>
-    </div>
+      <div class="pad20">
+        <%= link_to "Change the picture", edit_cocktail_path(@cocktail), class: "btn btn-warning btn-sm" %>
+      </div>
+      <div class="bottom-buttons">
+      <%= link_to "Go back", cocktails_path, class: "btn btn-warning btn-sm" %>
+      <%= link_to 'Add new cocktail', new_cocktail_path(@cocktail) %>
+      </div>
 </div>
